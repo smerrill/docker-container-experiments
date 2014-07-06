@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Write out the config file based on env vars.
+echo "==> Updating php-fpm configuration based on the environment."
+erb /opt/templates/www.conf.erb > /etc/php-fpm.d/www.conf
+
+# Set up logs.
+echo "==> Setting the php-fpm log directory."
+mkdir -p /opt/app/log/php-fpm
+touch /opt/app/log/php-fpm/www-error.log
+touch /opt/app/log/php-fpm/www-slow.log
+
+# Start PHP-FPM in the foreground.
+echo "==> Starting php-fpm."
+/usr/sbin/php-fpm -F -R

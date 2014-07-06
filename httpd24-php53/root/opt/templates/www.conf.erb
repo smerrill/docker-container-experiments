@@ -1,0 +1,15 @@
+[www]
+listen = 127.0.0.1:9000
+listen.allowed_clients = 127.0.0.1
+user = root
+group = apache
+pm = static
+pm.max_children = <%= ENV['PHP_FPM_PROCS'] %>
+pm.max_requests = 100
+slowlog = /opt/app/log/php-fpm/www-slow.log
+php_admin_value[error_log] = /opt/app/log/php-fpm/www-error.log
+php_admin_flag[log_errors] = on
+php_value[memory_limit] = <%= ENV['PHP_MEMORY_LIMIT'] %>
+php_value[apc.shm_size] = <%= ENV['PHP_APC_SHM_SIZE'] %>
+php_value[session.save_handler] = files
+php_value[session.save_path] = /var/lib/php/session

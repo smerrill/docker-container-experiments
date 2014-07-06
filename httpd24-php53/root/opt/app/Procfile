@@ -1,2 +1,4 @@
+php: /opt/bin/php-fpm
 web: /opt/rh/httpd24/root/usr/sbin/apachectl -DFOREGROUND
-php: /usr/sbin/php-fpm
+slowlog: /bin/bash -c '/bin/sleep 1 && /usr/bin/tail -f /opt/app/log/php-fpm/www-slow.log'
+errorlog: /bin/bash -c '/bin/sleep 1 && /usr/bin/tail -f /opt/app/log/php-fpm/www-error.log'
