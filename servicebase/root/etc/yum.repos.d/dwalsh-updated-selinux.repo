@@ -1,0 +1,5 @@
+[dwalsh-updated-selinux]
+name=dwalsh-updated-selinux
+baseurl=http://people.redhat.com/dwalsh/SELinux/RHEL6/
+enabled=1
+gpgcheck=0
